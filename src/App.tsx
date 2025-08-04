@@ -195,10 +195,15 @@ function App() {
                 Bring comfort, joy, and heartfelt connection to someone's graceful years.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 flex items-center justify-center shadow-lg">
+                <a 
+                  href="https://forms.gle/Lv5Nhw7N8UbJDKZPA" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 flex items-center justify-center shadow-lg"
+                >
                   Bring Comfort by Joining
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
+                </a>
                 <button className="border-2 border-primary-300 hover:border-primary-400 text-gray-700 hover:text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 flex items-center justify-center bg-white/50">
                   <Play className="mr-2 h-5 w-5" />
                   Watch Testimonials
@@ -370,9 +375,14 @@ function App() {
             <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Ready to bring comfort into your life?
             </h2>
-            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-colors duration-200 shadow-lg">
+            <a 
+              href="https://forms.gle/Lv5Nhw7N8UbJDKZPA" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-colors duration-200 shadow-lg inline-block"
+            >
               Start Your Journey Today
-            </button>
+            </a>
           </div>
           
           <div className="grid md:grid-cols-4 gap-8 mb-12">

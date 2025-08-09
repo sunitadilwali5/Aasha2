@@ -155,7 +155,7 @@ function App() {
                 <BookOpen className="h-8 w-8 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-playfair font-bold text-maroon">Vedic Gurukul</h1>
+                <h1 className="text-2xl font-playfair font-bold text-maroon">VRPGNA</h1>
                 <p className="text-sm text-gray-600">Online Learning</p>
               </div>
             </div>
@@ -417,12 +417,12 @@ function App() {
                   <BookOpen className="h-8 w-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-playfair font-bold">Vedic Gurukul</h3>
-                  <p className="text-saffron/80">Bringing the Gurukul to Your Home</p>
+                  <h3 className="text-2xl font-playfair font-bold">VRPGNA</h3>
+                  <p className="text-saffron/80">Ancient Wisdom, Anywhere You Are</p>
                 </div>
               </div>
               <p className="text-white/80 leading-relaxed mb-6">
-                Experience the timeless tradition of Vedic learning through our authentic online platform. 
+                VRPGNA.com - Experience the timeless tradition of Vedic learning through our authentic online platform. 
                 Connect with revered Acharyas and a global community of spiritual seekers.
               </p>
               <div className="flex space-x-4">
@@ -465,7 +465,7 @@ function App() {
               <div className="space-y-4 text-white/80">
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-saffron" />
-                  <span>info@vedicgurukul.com</span>
+                  <span>info@vrpgna.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-saffron" />
@@ -497,7 +497,7 @@ function App() {
           
           <div className="border-t border-white/20 pt-8 text-center">
             <p className="text-white/60">
-              © 2025 Vedic Gurukul Online. All rights reserved. Preserving ancient wisdom for the modern world.
+              © 2025 VRPGNA.com. All rights reserved. Preserving ancient wisdom for the modern world.
             </p>
           </div>
         </div>

@@ -1,269 +1,276 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Heart, 
-  Calendar, 
+  BookOpen, 
   Users, 
-  Pill, 
-  MessageCircle,
-  Phone,
-  Gift,
-  ChevronRight,
-  Star,
+  Globe, 
+  Video, 
+  Clock, 
+  Heart,
   Play,
-  CheckCircle,
-  UserPlus,
-  Stethoscope,
-  Activity,
+  Star,
+  MapPin,
+  Laptop,
+  Cloud,
+  UserCheck,
+  Phone,
   Mail,
-  Shield,
-  FileText,
-  ChevronDown,
-  ArrowRight
+  MessageCircle,
+  Instagram,
+  Youtube,
+  Linkedin,
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle,
+  Sparkles,
+  Calendar,
+  Award
 } from 'lucide-react';
 
 interface Testimonial {
   id: string;
+  name: string;
+  location: string;
   text: string;
-  author: string;
+  image: string;
   rating: number;
 }
 
-interface FAQ {
-  id: string;
-  question: string;
-  answer: string;
-  isOpen: boolean;
-}
-
 function App() {
-  const [testimonials] = useState<Testimonial[]>([
-    {
-      id: '1',
-      text: "The best companion ever - This brought the happiness back in my life. My health has improved and I made more friends even at this late stage.",
-      author: "Margaret, 72",
-      rating: 5
-    },
-    {
-      id: '2', 
-      text: "The platform has completely transformed my life from loneliness and depression to a creative and happy personality. My family started talking to me and spending time, because I have changed my attitude to a positive one now.",
-      author: "Robert, 68",
-      rating: 5
-    },
-    {
-      id: '3',
-      text: "AASHA understands me like no one else. The daily conversations feel so natural and caring. I look forward to each day now.",
-      author: "Dorothy, 75",
-      rating: 5
-    }
-  ]);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  const [faqs, setFaqs] = useState<FAQ[]>([
+  const testimonials: Testimonial[] = [
     {
       id: '1',
-      question: "How does AASHA work?",
-      answer: "AASHA is an AI-powered companion that learns about you through conversations and provides personalized daily interactions, health reminders, and helps you stay connected with family and friends.",
-      isOpen: false
+      name: 'Priya Mehta',
+      location: 'Toronto, Canada',
+      text: 'Even though I live in Canada, I feel as if I\'m sitting in the Gurukul hall. The teachers\' warmth and the daily chanting sessions have brought so much peace to my life.',
+      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      rating: 5
     },
     {
       id: '2',
-      question: "Is my personal information secure?",
-      answer: "Yes, we follow strict HIPAA compliance and use advanced encryption to protect all your personal and health information. Your privacy is our top priority.",
-      isOpen: false
+      name: 'David Thompson',
+      location: 'London, UK',
+      text: 'Learning Sanskrit online seemed impossible until I found this Gurukul. The Acharyas make ancient wisdom accessible and relevant to modern life.',
+      image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      rating: 5
     },
     {
       id: '3',
-      question: "Can I use AASHA on my tablet or phone?",
-      answer: "Absolutely! AASHA works on all devices - tablets, smartphones, and computers. The interface is designed to be easy to use with large buttons and clear text.",
-      isOpen: false
+      name: 'Ananya Sharma',
+      location: 'Sydney, Australia',
+      text: 'The flexibility to join live classes or watch recordings has been perfect for my schedule. The community feels like a global family united by ancient wisdom.',
+      image: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      rating: 5
     },
     {
       id: '4',
-      question: "How much does AASHA cost?",
-      answer: "We offer flexible pricing plans starting at $29/month. We also provide a 14-day free trial so you can experience the benefits before committing.",
-      isOpen: false
-    },
-    {
-      id: '5',
-      question: "What if I need help getting started?",
-      answer: "Our dedicated support team provides personalized onboarding and is available 24/7 to help you with any questions or technical issues.",
-      isOpen: false
+      name: 'Michael Rodriguez',
+      location: 'New York, USA',
+      text: 'The depth of knowledge and the authentic teaching methods have transformed my understanding of Vedic philosophy. Truly grateful for this opportunity.',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      rating: 5
     }
-  ]);
+  ];
 
-  const toggleFAQ = (id: string) => {
-    setFaqs(prev => prev.map(faq => 
-      faq.id === id ? { ...faq, isOpen: !faq.isOpen } : faq
-    ));
-  };
-
-  const benefits = [
+  const features = [
     {
-      icon: MessageCircle,
-      title: "Daily Companion Conversation",
-      description: "Engage in meaningful daily chats that adapt to your interests and mood"
+      icon: Video,
+      title: 'Live, Interactive Classes',
+      description: 'Directly learn from experienced Acharyas in real-time sessions with Q&A and discussions.'
     },
     {
-      icon: Pill,
-      title: "Health & Wellness Reminders", 
-      description: "Never miss medications, doctor appointments, or exercise routines"
+      icon: Globe,
+      title: 'Global Community',
+      description: 'Students from all continents share the journey, creating a diverse learning environment.'
+    },
+    {
+      icon: Clock,
+      title: 'Flexible Learning',
+      description: 'Join live classes or access recordings at your own pace, fitting learning into your schedule.'
+    },
+    {
+      icon: BookOpen,
+      title: 'Complete Vedic Curriculum',
+      description: 'Comprehensive courses in Sanskrit, shlokas, yoga, philosophy, and traditional rituals.'
     },
     {
       icon: Calendar,
-      title: "Celebrate Special Days",
-      description: "Remember and celebrate birthdays, anniversaries, and important milestones"
+      title: 'Cultural Events Online',
+      description: 'Participate in virtual festival celebrations, group chanting, and spiritual gatherings.'
     },
     {
-      icon: Users,
-      title: "Connect with Peers",
-      description: "Meet and chat with people your age who share similar interests"
-    },
-    {
-      icon: Heart,
-      title: "Family Connections",
-      description: "Stay close to family members with easy communication tools"
-    },
-    {
-      icon: Gift,
-      title: "Thoughtful Greetings",
-      description: "Send personalized messages and greetings to loved ones on special occasions"
+      icon: UserCheck,
+      title: 'Personal Mentor Support',
+      description: 'Receive personalized guidance tailored to your unique learning path and spiritual goals.'
     }
   ];
 
   const steps = [
     {
-      number: "01",
-      title: "Enroll",
-      description: "Sign up in minutes and tell us about yourself, your interests, and preferences"
+      icon: Laptop,
+      title: 'Enroll Online',
+      description: 'Sign up for your desired course and receive your digital welcome kit with all learning materials.'
     },
     {
-      number: "02", 
-      title: "Share",
-      description: "Share your stories, memories, and daily experiences with your AI companion"
+      icon: Video,
+      title: 'Join Live Classes',
+      description: 'Attend interactive sessions with Acharyas and connect with classmates from around the world.'
     },
     {
-      number: "03",
-      title: "Connect", 
-      description: "Build meaningful relationships with family, friends, and new companions"
+      icon: Cloud,
+      title: 'Access Recordings',
+      description: 'Revisit lessons anytime through our secure learning portal with lifetime access to content.'
     },
     {
-      number: "04",
-      title: "Customized Companion",
-      description: "Enjoy a personalized experience that grows and adapts to your unique needs"
+      icon: Users,
+      title: 'Community Connect',
+      description: 'Participate in online satsangs, group chanting sessions, and celebrate festivals together.'
     }
   ];
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 text-gray-800 font-sans">
+    <div className="min-h-screen bg-cream text-gray-800 font-lato">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-blue-200 sticky top-0 z-50 shadow-sm">
+      <header className="bg-white/90 backdrop-blur-sm border-b border-saffron/20 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-primary-400 to-primary-500 p-3 rounded-xl shadow-lg">
-                <Heart className="h-8 w-8 text-white" />
+              <div className="bg-gradient-to-br from-saffron to-gold p-3 rounded-full shadow-lg">
+                <BookOpen className="h-8 w-8 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-800">AASHA</h1>
-                <p className="text-sm text-gray-600">Your Digital Companion</p>
+                <h1 className="text-2xl font-playfair font-bold text-maroon">Vedic Gurukul</h1>
+                <p className="text-sm text-gray-600">Online Learning</p>
               </div>
             </div>
-            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-xl font-semibold transition-colors duration-200 shadow-lg">
-              Get Started
+            <nav className="hidden md:flex items-center space-x-8">
+              <a href="#courses" className="text-gray-700 hover:text-saffron transition-colors">Courses</a>
+              <a href="#about" className="text-gray-700 hover:text-saffron transition-colors">About Us</a>
+              <a href="#how-it-works" className="text-gray-700 hover:text-saffron transition-colors">How It Works</a>
+              <a href="#testimonials" className="text-gray-700 hover:text-saffron transition-colors">Testimonials</a>
+              <a href="#contact" className="text-gray-700 hover:text-saffron transition-colors">Contact</a>
+            </nav>
+            <button className="bg-saffron hover:bg-saffron/90 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 shadow-lg">
+              Start Learning
             </button>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50"></div>
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-saffron/10 via-cream to-gold/10">
         <div className="absolute inset-0 opacity-5">
-          <img 
-            src="/for website.jpeg" 
-            alt="Background" 
-            className="w-full h-full object-cover"
-          />
+          <div className="absolute inset-0 bg-mandala-pattern"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-                The companion who turns 
-                <span className="text-primary-400"> loneliness into laughter</span>
+              <h1 className="text-5xl lg:text-6xl font-playfair font-bold text-maroon mb-6 leading-tight">
+                Ancient Wisdom,
+                <span className="text-saffron block"> Anywhere You Are</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Bring comfort, joy, and heartfelt connection to someone's graceful years.
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                Learn Sanskrit, scriptures, yoga, and Vedic philosophy from revered Acharyas — 
+                live, interactive, and online.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a 
-                  href="https://forms.gle/Lv5Nhw7N8UbJDKZPA" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 flex items-center justify-center shadow-lg"
-                >
-                  Bring Comfort by Joining
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-                <button className="border-2 border-primary-300 hover:border-primary-400 text-gray-700 hover:text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 flex items-center justify-center bg-white/50">
+                <button className="bg-saffron hover:bg-saffron/90 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200 flex items-center justify-center shadow-lg transform hover:scale-105">
+                  Start Your Learning Journey
+                  <BookOpen className="ml-2 h-5 w-5" />
+                </button>
+                <button className="border-2 border-saffron hover:bg-saffron hover:text-white text-saffron px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200 flex items-center justify-center bg-white/80">
                   <Play className="mr-2 h-5 w-5" />
-                  Watch Inroductory Vedio 
+                  Try a Free Intro Class
                 </button>
               </div>
             </div>
             <div className="relative">
-              <img 
-                src="/for website.jpeg" 
-                alt="AASHA Companion" 
-                className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border-4 border-primary-200"
-              />
-              <div className="absolute -top-4 -right-4 bg-primary-500 text-white p-4 rounded-full">
-                <Heart className="h-8 w-8" />
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-saffron/20 p-6">
+                <div className="aspect-video bg-gradient-to-br from-maroon/10 to-saffron/10 rounded-xl flex items-center justify-center mb-4">
+                  <div className="text-center">
+                    <Video className="h-16 w-16 text-saffron mx-auto mb-4" />
+                    <p className="text-gray-600 font-medium">Live Class in Progress</p>
+                    <p className="text-sm text-gray-500">Acharya teaching Sanskrit fundamentals</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between text-sm text-gray-600">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span>Live</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Users className="h-4 w-4" />
+                    <span>24 students online</span>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -top-4 -right-4 bg-gold text-white p-4 rounded-full shadow-lg">
+                <Sparkles className="h-8 w-8" />
               </div>
             </div>
           </div>
           
-          {/* Social Proof */}
-          <div className="mt-16 text-center">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-200 shadow-lg">
-                <div className="text-3xl font-bold text-primary-400 mb-2">15,000+</div>
-                <div className="text-gray-600">Trusted Members</div>
-              </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-200 shadow-lg">
-                <div className="text-3xl font-bold text-primary-400 mb-2">98%</div>
-                <div className="text-gray-600">Satisfaction Rate</div>
-              </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-200 shadow-lg">
-                <div className="text-3xl font-bold text-primary-400 mb-2">24/7</div>
-                <div className="text-gray-600">Always Available</div>
-              </div>
+          {/* Stats */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-saffron/20 shadow-lg">
+              <div className="text-3xl font-playfair font-bold text-saffron mb-2">2,500+</div>
+              <div className="text-gray-600">Global Students</div>
+            </div>
+            <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-saffron/20 shadow-lg">
+              <div className="text-3xl font-playfair font-bold text-saffron mb-2">15+</div>
+              <div className="text-gray-600">Expert Acharyas</div>
+            </div>
+            <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-saffron/20 shadow-lg">
+              <div className="text-3xl font-playfair font-bold text-saffron mb-2">50+</div>
+              <div className="text-gray-600">Countries Reached</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-white/40">
+      {/* How It Works */}
+      <section id="how-it-works" className="py-20 bg-white/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              Everything you need for a fulfilling life
+            <h2 className="text-4xl font-playfair font-bold text-maroon mb-6">
+              Your Gurukul Journey — From Home
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              AASHA provides comprehensive support to help you stay healthy, connected, and joyful every day.
+              Experience authentic Vedic education through our carefully designed online learning process
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
               return (
-                <div key={index} className="bg-white/70 backdrop-blur-sm rounded-xl p-8 border border-blue-200 hover:border-primary-300 transition-all duration-200 shadow-lg hover:shadow-xl">
-                  <div className="bg-primary-500/20 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                    <Icon className="h-8 w-8 text-primary-400" />
+                <div key={index} className="text-center relative">
+                  <div className="bg-gradient-to-br from-saffron to-gold text-white w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg">
+                    <Icon className="h-10 w-10" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-xl font-playfair font-semibold text-maroon mb-4">{step.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  {index < steps.length - 1 && (
+                    <div className="hidden lg:block absolute top-10 left-full w-full">
+                      <div className="w-full h-0.5 bg-gradient-to-r from-saffron/50 to-gold/50"></div>
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -271,180 +278,226 @@ function App() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20">
+      {/* Features */}
+      <section className="py-20 bg-gradient-to-br from-cream to-saffron/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              How AASHA Works
+            <h2 className="text-4xl font-playfair font-bold text-maroon mb-6">
+              What Makes Our Online Gurukul Special
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Getting started with your digital companion is simple and rewarding
+              Combining traditional wisdom with modern technology for an unparalleled learning experience
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-primary-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                  {step.number}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full">
-                    <ChevronRight className="h-6 w-6 text-primary-400 mx-auto" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="bg-white/70 backdrop-blur-sm rounded-xl p-8 border border-saffron/20 hover:border-saffron/40 transition-all duration-200 shadow-lg hover:shadow-xl group">
+                  <div className="bg-saffron/20 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-saffron/30 transition-colors">
+                    <Icon className="h-8 w-8 text-saffron" />
                   </div>
-                )}
-              </div>
-            ))}
+                  <h3 className="text-xl font-playfair font-semibold text-maroon mb-4">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-blue-50/50 overflow-hidden">
+      <section id="testimonials" className="py-20 bg-white/50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              What Our Members Say
+            <h2 className="text-4xl font-playfair font-bold text-maroon mb-6">
+              Our Students Speak
             </h2>
             <p className="text-xl text-gray-600">
-              Real stories from real people whose lives have been transformed
+              Hear from our global community of learners
             </p>
           </div>
           
-          <div className="flex space-x-8 animate-scroll">
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <div key={`${testimonial.id}-${index}`} className="flex-shrink-0 w-96 bg-white/70 backdrop-blur-sm rounded-xl p-8 border border-blue-200 shadow-lg">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
+          <div className="relative">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-saffron/20 shadow-xl max-w-4xl mx-auto">
+              <div className="flex items-center justify-between mb-8">
+                <button 
+                  onClick={prevTestimonial}
+                  className="p-2 rounded-full bg-saffron/20 hover:bg-saffron/30 transition-colors"
+                >
+                  <ChevronLeft className="h-6 w-6 text-saffron" />
+                </button>
+                
+                <div className="text-center flex-1">
+                  <div className="flex items-center justify-center mb-6">
+                    <img 
+                      src={testimonials[currentTestimonial].image}
+                      alt={testimonials[currentTestimonial].name}
+                      className="w-20 h-20 rounded-full border-4 border-saffron/30 shadow-lg"
+                    />
+                  </div>
+                  <div className="flex justify-center mb-4">
+                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-gold fill-current" />
+                    ))}
+                  </div>
+                  <blockquote className="text-lg text-gray-700 mb-6 italic leading-relaxed">
+                    "{testimonials[currentTestimonial].text}"
+                  </blockquote>
+                  <div className="text-saffron font-semibold text-lg">
+                    — {testimonials[currentTestimonial].name}
+                  </div>
+                  <div className="flex items-center justify-center text-gray-500 mt-2">
+                    <MapPin className="h-4 w-4 mr-1" />
+                    {testimonials[currentTestimonial].location}
+                  </div>
                 </div>
-                <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                  "{testimonial.text}"
-                </p>
-                <div className="text-primary-400 font-semibold">
-                  — {testimonial.author}
-                </div>
+                
+                <button 
+                  onClick={nextTestimonial}
+                  className="p-2 rounded-full bg-saffron/20 hover:bg-saffron/30 transition-colors"
+                >
+                  <ChevronRight className="h-6 w-6 text-saffron" />
+                </button>
               </div>
-            ))}
+              
+              <div className="flex justify-center space-x-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentTestimonial ? 'bg-saffron' : 'bg-saffron/30'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+            
+            {/* Global reach visualization */}
+            <div className="mt-12 text-center">
+              <div className="inline-flex items-center space-x-4 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 border border-saffron/20">
+                <Globe className="h-6 w-6 text-saffron" />
+                <span className="text-gray-700 font-medium">Students learning from 50+ countries worldwide</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-gray-600">
-              Everything you need to know about AASHA
-            </p>
-          </div>
-          
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <div key={faq.id} className="bg-white/70 backdrop-blur-sm rounded-xl border border-blue-200 shadow-lg">
-                <button
-                  onClick={() => toggleFAQ(faq.id)}
-                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-blue-50/50 transition-colors duration-200"
-                >
-                  <span className="text-lg font-semibold text-gray-800">{faq.question}</span>
-                  <ChevronDown className={`h-5 w-5 text-primary-400 transition-transform duration-200 ${faq.isOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {faq.isOpen && (
-                  <div className="px-8 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-maroon to-maroon/90 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-playfair font-bold mb-6">
+            Begin Your Sacred Learning Journey Today
+          </h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join thousands of students worldwide in experiencing authentic Vedic wisdom through our online Gurukul
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-saffron hover:bg-saffron/90 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200 shadow-lg transform hover:scale-105">
+              Enroll Now
+            </button>
+            <button className="border-2 border-white/50 hover:bg-white hover:text-maroon text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200">
+              Schedule a Consultation
+            </button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-blue-200">
+      <footer id="contact" className="bg-maroon text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          {/* CTA Section */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              Ready to bring comfort into your life?
-            </h2>
-            <a 
-              href="https://forms.gle/Lv5Nhw7N8UbJDKZPA" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-colors duration-200 shadow-lg inline-block"
-            >
-              Start Your Journey Today
-            </a>
-          </div>
-          
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div className="md:col-span-2">
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
+            {/* Left Section */}
+            <div>
               <div className="flex items-center space-x-4 mb-6">
-                <div className="bg-gradient-to-r from-primary-400 to-primary-500 p-3 rounded-xl shadow-lg">
-                  <Heart className="h-8 w-8 text-white" />
+                <div className="bg-gradient-to-br from-saffron to-gold p-3 rounded-full shadow-lg">
+                  <BookOpen className="h-8 w-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-800">AASHA</h3>
-                  <p className="text-gray-600">Your Digital Companion</p>
+                  <h3 className="text-2xl font-playfair font-bold">Vedic Gurukul</h3>
+                  <p className="text-saffron/80">Bringing the Gurukul to Your Home</p>
                 </div>
               </div>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                AASHA is dedicated to bringing joy, connection, and meaningful companionship to elderly individuals. 
-                Our AI-powered platform provides personalized daily interactions, health reminders, and helps maintain 
-                precious connections with family and friends.
+              <p className="text-white/80 leading-relaxed mb-6">
+                Experience the timeless tradition of Vedic learning through our authentic online platform. 
+                Connect with revered Acharyas and a global community of spiritual seekers.
               </p>
               <div className="flex space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <Phone className="h-5 w-5 text-primary-400" />
-                </div>
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <Mail className="h-5 w-5 text-primary-400" />
-                </div>
+                <a href="#" className="bg-white/20 p-3 rounded-lg hover:bg-white/30 transition-colors">
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a href="#" className="bg-white/20 p-3 rounded-lg hover:bg-white/30 transition-colors">
+                  <Youtube className="h-5 w-5" />
+                </a>
+                <a href="#" className="bg-white/20 p-3 rounded-lg hover:bg-white/30 transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </a>
               </div>
             </div>
             
+            {/* Center Section */}
             <div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">Features</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>Daily Conversations</li>
-                <li>Health Reminders</li>
-                <li>Family Connections</li>
-                <li>Special Occasions</li>
-                <li>Peer Networking</li>
+              <h4 className="text-lg font-playfair font-semibold mb-6">Quick Links</h4>
+              <ul className="space-y-3 text-white/80">
+                <li><a href="#courses" className="hover:text-saffron transition-colors">Courses</a></li>
+                <li><a href="#about" className="hover:text-saffron transition-colors">About Us</a></li>
+                <li><a href="#how-it-works" className="hover:text-saffron transition-colors">How It Works</a></li>
+                <li><a href="#testimonials" className="hover:text-saffron transition-colors">Testimonials</a></li>
+                <li><a href="#contact" className="hover:text-saffron transition-colors">Contact</a></li>
               </ul>
+              <div className="mt-6">
+                <a 
+                  href="#" 
+                  className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  Join Our WhatsApp Community
+                </a>
+              </div>
             </div>
             
+            {/* Right Section */}
             <div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
-                  <Shield className="h-4 w-4 mr-2 text-primary-400" />
-                  Privacy Policy
-                </li>
-                <li className="flex items-center">
-                  <FileText className="h-4 w-4 mr-2 text-primary-400" />
-                  HIPAA Compliance
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-primary-400" />
-                  Terms of Service
-                </li>
-                <li>Cookie Policy</li>
-              </ul>
+              <h4 className="text-lg font-playfair font-semibold mb-6">Contact & Support</h4>
+              <div className="space-y-4 text-white/80">
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-5 w-5 text-saffron" />
+                  <span>info@vedicgurukul.com</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-5 w-5 text-saffron" />
+                  <span>+1 (555) 123-4567</span>
+                </div>
+                <div className="text-sm">
+                  <p className="font-medium text-white">Live Chat Hours:</p>
+                  <p>Monday - Friday: 9 AM - 6 PM EST</p>
+                  <p>Saturday: 10 AM - 4 PM EST</p>
+                </div>
+              </div>
+              
+              <div className="mt-6">
+                <h5 className="font-medium text-white mb-3">Newsletter</h5>
+                <p className="text-sm text-white/80 mb-3">Receive Vedic wisdom and course updates weekly</p>
+                <div className="flex">
+                  <input 
+                    type="email" 
+                    placeholder="Your email"
+                    className="flex-1 px-4 py-2 rounded-l-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:border-saffron"
+                  />
+                  <button className="bg-saffron hover:bg-saffron/90 px-4 py-2 rounded-r-lg transition-colors">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           
-          <div className="border-t border-blue-200 pt-8 text-center">
-            <p className="text-gray-600">
-              © 2025 AASHA. All rights reserved. Made with ❤️ for our cherished elderly community.
+          <div className="border-t border-white/20 pt-8 text-center">
+            <p className="text-white/60">
+              © 2025 Vedic Gurukul Online. All rights reserved. Preserving ancient wisdom for the modern world.
             </p>
           </div>
         </div>

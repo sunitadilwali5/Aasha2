@@ -206,7 +206,7 @@ function App() {
                 </a>
                 <button className="border-2 border-primary-300 hover:border-primary-400 text-gray-700 hover:text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 flex items-center justify-center bg-white/50">
                   <Play className="mr-2 h-5 w-5" />
-                  Watch Testimonials
+                  Watch Inroductory Vedio 
                 </button>
               </div>
             </div>

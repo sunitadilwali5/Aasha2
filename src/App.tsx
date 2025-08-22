@@ -199,6 +199,12 @@ function App() {
               Comprehensive Care
               <span className="text-saffron block">& Wellness Platform</span>
             </h1>
+            <div className="mb-6">
+              <p className="text-2xl font-playfair text-maroon mb-2">Aasha – Your friendly companion always by your side</p>
+              <p className="text-lg text-gray-600 italic max-w-4xl mx-auto leading-relaxed">
+                "Always here with care, gentle reminders, and conversations that fill your graceful years with comfort, joy, and peace."
+              </p>
+            </div>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
               A holistic approach to family wellness with daily engagement, health tracking, 
               and meaningful connections through our integrated module system.

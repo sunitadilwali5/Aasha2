@@ -174,7 +174,7 @@ function App() {
                 <Heart className="h-8 w-8 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-playfair font-bold text-maroon">VPRAGNA</h1>
+                <h1 className="text-2xl font-playfair font-bold text-maroon">AASHA</h1>
                 <p className="text-sm text-gray-600">Wellness & Care Platform</p>
               </div>
             </div>
@@ -395,7 +395,7 @@ function App() {
                   <Heart className="h-8 w-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-playfair font-bold">VPRAGNA</h3>
+                  <h3 className="text-2xl font-playfair font-bold">AASHA</h3>
                   <p className="text-saffron/80">Comprehensive Care & Wellness</p>
                 </div>
               </div>
@@ -424,7 +424,7 @@ function App() {
               <div className="space-y-4 text-white/80">
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-saffron" />
-                  <span>support@vpragna.com</span>
+                  <span>support@aasha.net</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-saffron" />
@@ -441,7 +441,7 @@ function App() {
           
           <div className="border-t border-white/20 pt-8 text-center">
             <p className="text-white/60">
-              © 2025 VPRAGNA.com. All rights reserved. Caring for families through technology.
+              © 2025 AASHA.net. All rights reserved. Caring for families through technology.
             </p>
           </div>
         </div>

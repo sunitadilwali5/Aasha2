@@ -193,6 +193,16 @@ function App() {
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden bg-gradient-to-br from-saffron/10 via-cream to-gold/10">
+        {/* Hero Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop" 
+            alt="Caring hands and wellness" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-saffron/20 via-cream/80 to-gold/20"></div>
+        </div>
+        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl lg:text-6xl font-playfair font-bold text-maroon mb-6 leading-tight">
@@ -222,7 +232,7 @@ function App() {
           </div>
           
           {/* Stats */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
             <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-saffron/20 shadow-lg">
               <div className="text-3xl font-playfair font-bold text-saffron mb-2">7</div>
               <div className="text-gray-600">Integrated Modules</div>
